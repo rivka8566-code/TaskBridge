@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "pJ+D0Qj+/OY=",
+  "dgSpecHash": "vO0hg3Xtk6Y=",
   "success": true,
-  "projectFilePath": "C:\\Users\\This User\\Desktop\\תכנות\\שנה יד\\מיני פרויקט פרקטיקום\\TaxPracticumAPI\\TaxPracticumAPI\\TaxPracticumAPI.csproj",
+  "projectFilePath": "C:\\Users\\This User\\Desktop\\תכנות\\שנה יד\\מיני פרויקט פרקטיקום\\api\\TaxPracticumAPI\\TaxPracticumAPI\\TaxPracticumAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\This User\\.nuget\\packages\\azure.core\\1.50.0\\azure.core.1.50.0.nupkg.sha512",
     "C:\\Users\\This User\\.nuget\\packages\\azure.identity\\1.17.1\\azure.identity.1.17.1.nupkg.sha512",

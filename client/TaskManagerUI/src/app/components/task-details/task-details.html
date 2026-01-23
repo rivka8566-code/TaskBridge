@@ -1,0 +1,42 @@
+<div class="container mt-5 d-flex justify-content-center">
+  @if (task) {
+    <div class="minimal-card shadow-sm p-4 border rounded-4 bg-white">
+      <div class="d-flex justify-content-between align-items-start mb-4">
+        <h2 class="h4 fw-bold m-0 text-dark">{{ task.Title }}</h2>
+        <span class="text-muted small">#{{ task.Id }}</span>
+      </div>
+
+      <div class="detail-row">
+        <label>תיאור</label>
+        <p>{{ task.Description || 'אין תיאור זמין' }}</p>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-6">
+          <div class="detail-row">
+            <label>סטטוס</label>
+            <span class="status-text border-start border-3 ps-2" [ngClass]="'status-' + task.StatusId">
+              {{ task.StatusName }}
+            </span>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="detail-row">
+            <label>קטגוריה</label>
+            <span class="text-dark fw-medium">{{ task.CategoryName }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
+        <div class="detail-row m-0">
+          <label>נוצר בתאריך</label>
+          <span class="small text-muted">{{ task.CreatedAt | date:'dd/MM/yyyy' }}</span>
+        </div>
+        <button class="btn btn-sm btn-outline-secondary border-0" (click)="goBack()">חזרה</button>
+      </div>
+    </div>
+  } @else {
+    <div class="spinner-border text-light opacity-50" role="status"></div>
+  }
+</div>

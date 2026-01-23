@@ -1,0 +1,35 @@
+.minimal-card {
+  max-width: 500px;
+  width: 100%;
+}
+
+.detail-row label {
+  display: block;
+  font-size: 0.75rem;
+  color: #adb5bd;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 2px;
+  letter-spacing: 0.5px;
+}
+
+.detail-row p {
+  color: #495057;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* עיצוב סטטוס מינימליסטי עם פס צבע צדי */
+.status-text {
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.status-1 { border-color: #ffc107 !important; color: #856404; } /* בטיפול */
+.status-2 { border-color: #0dcaf0 !important; color: #087990; } /* בהמתנה */
+.status-3 { border-color: #198754 !important; color: #0f5132; } /* בוצע */
+
+.btn-outline-secondary:hover {
+  background-color: #f8f9fa;
+  color: #212529;
+}
