@@ -1,35 +1,10 @@
-.minimal-card {
-  max-width: 500px;
-  width: 100%;
-}
+.details-card { position: relative; border-top: 1px solid #eee; }
+.accent-bar { height: 8px; width: 100%; }
+.id-badge { background: #f8f9fa; padding: 5px 15px; border-radius: 10px; font-weight: bold; color: #adb5bd; }
+.label-luxury { font-size: 0.7rem; font-weight: 800; color: #adb5bd; text-transform: uppercase; margin-bottom: 8px; display: block; letter-spacing: 1px; }
+.description-box { min-height: 100px; line-height: 1.6; font-size: 1.1rem; }
+.category-tag { background: #f1f3f5; padding: 10px 20px; border-radius: 50px; display: inline-block; }
+.btn-danger { background-color: #ff4d4d !important; border: none; }
+.text-gold { color: #c5a059 !important; }
 
-.detail-row label {
-  display: block;
-  font-size: 0.75rem;
-  color: #adb5bd;
-  text-transform: uppercase;
-  font-weight: 700;
-  margin-bottom: 2px;
-  letter-spacing: 0.5px;
-}
-
-.detail-row p {
-  color: #495057;
-  margin: 0;
-  line-height: 1.5;
-}
-
-/* עיצוב סטטוס מינימליסטי עם פס צבע צדי */
-.status-text {
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.status-1 { border-color: #ffc107 !important; color: #856404; } /* בטיפול */
-.status-2 { border-color: #0dcaf0 !important; color: #087990; } /* בהמתנה */
-.status-3 { border-color: #198754 !important; color: #0f5132; } /* בוצע */
-
-.btn-outline-secondary:hover {
-  background-color: #f8f9fa;
-  color: #212529;
-}
+/* עיצוב Tooltip בסיסי של הדפדפן כבר יעבוד עם מאפיין ה-title */

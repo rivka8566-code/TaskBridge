@@ -1,2 +1,72 @@
-<p>task-list works!</p>
-<button (click)="loadTasks()">Load Tasks</button>
+<div class="container mt-5 px-3 rtl-container">
+  <div class="d-flex justify-content-between align-items-center mb-5">
+    <h1 class="fw-bold text-dark m-0">ניהול משימות</h1>
+    <button class="btn btn-dark px-4 rounded-pill shadow-sm" (click)="addTask()">➕ משימה חדשה</button>
+  </div>
+
+  <div class="card border-0 shadow-sm rounded-4 mb-4 bg-white">
+    <div class="card-body p-4 text-dark">
+      <div class="row g-3">
+        <div class="col-md-4">
+          <input type="text" class="form-control" placeholder="חיפוש חופשי..." [(ngModel)]="searchText"
+            (input)="applyFilters()">
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" [(ngModel)]="categoryId" (change)="applyFilters()">
+            <option [ngValue]="null">כל הקטגוריות</option>
+            @for (cat of categories; track cat.Id) { <option [value]="cat.Id">{{ cat.CategoryName }}</option> }
+          </select>
+        </div>
+        <div class="col-md-3">
+          <select class="form-select" [(ngModel)]="statusId" (change)="applyFilters()">
+            <option [ngValue]="null">כל הסטטוסים</option>
+            @for (stat of statuses; track stat.Id) { <option [value]="stat.Id">{{ stat.StatusName }}</option> }
+          </select>
+        </div>
+        <div class="col-md-2 text-end">
+          <button class="btn btn-link text-muted" (click)="resetFilters()">נקה הכל</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="table-responsive rounded-4 shadow-sm bg-white">
+    <table class="table align-middle m-0 text-dark">
+      <thead class="table-light">
+        <tr>
+          <th class="ps-4">ID</th>
+          <th>כותרת</th>
+          <th>סטטוס</th>
+          <th>קטגוריה</th>
+          <th class="text-center">פעולות</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (task of tasks; track task.Id) {
+        <tr>
+          <td class="ps-4 fw-bold text-muted">#{{ task.Id }}</td>
+          <td class="fw-medium">{{ task.Title }}</td>
+          <td><span class="custom-badge" [ngClass]="'status-type-' + task.StatusId">{{ task.StatusName }}</span></td>
+          <td>{{ task.CategoryName }}</td>
+          <td class="text-center pe-4">
+            <div class="d-flex justify-content-center gap-2">
+              <button class="btn-circle view" (click)="viewTask(task.Id)" title="צפייה בפרטים">👁️</button>
+              <button class="btn-circle edit" (click)="editTask(task.Id)" title="עריכת משימה">✏️</button>
+              <div class="delete-zone">
+                @if (pendingDeleteId === task.Id) {
+                <button class="btn btn-sm btn-danger rounded-pill px-3 animate-pop" (click)="confirmDelete(task.Id)">אשר
+                  מחיקה</button>
+                <button class="btn btn-sm btn-light border rounded-pill px-2" (click)="pendingDeleteId = null"
+                  title="ביטול">✖</button>
+                } @else {
+                <button class="btn-circle delete" (click)="pendingDeleteId = task.Id" title="מחיקת משימה">🗑️</button>
+                }
+              </div>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>

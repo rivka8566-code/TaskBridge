@@ -1,1 +1,10 @@
-/* You can add global styles to this file, and also import other style files */
+body { direction: rtl; text-align: right; background-color: #f8f9fa; color: #212529; font-family: 'Segoe UI', sans-serif; }
+.text-dark { color: #212529 !important; }
+.custom-badge { padding: 6px 16px; border-radius: 50px; font-weight: 700; font-size: 0.85rem; display: inline-block; }
+.status-type-1 { background: #fff3cd; color: #856404; border: 1px solid #ffeeba; }
+.status-type-2 { background: #cfe2ff; color: #084298; border: 1px solid #b6d4fe; }
+.status-type-3 { background: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; }
+.btn-circle { width: 38px; height: 38px; border-radius: 50%; border: 1px solid #eee; background: white; transition: 0.2s; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.btn-circle:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+.animate-pop { animation: pop 0.3s ease; }
+@keyframes pop { 0% { transform: scale(0.8); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }

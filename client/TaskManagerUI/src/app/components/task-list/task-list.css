@@ -1,0 +1,33 @@
+.rtl-container { direction: rtl; text-align: right; }
+
+.table { color: #212529 !important; }
+th { color: #6c757d !important; font-weight: 600; padding: 15px !important; }
+
+/* תיקון הסטטוסים - צבע כהה על רקע בהיר */
+.custom-badge {
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.status-type-1 { background-color: #fff3cd; color: #856404; border: 1px solid #ffeeba; } /* בטיפול */
+.status-type-2 { background-color: #cfe2ff; color: #084298; border: 1px solid #b6d4fe; } /* בהמתנה */
+.status-type-3 { background-color: #d1e7dd; color: #0f5132; border: 1px solid #badbcc; } /* בוצע */
+
+/* לחצנים עגולים יוקרתיים */
+.btn-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid #eee;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.btn-circle:hover { transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+.btn-circle.delete:hover { background-color: #fff5f5; border-color: #ffa8a8; }

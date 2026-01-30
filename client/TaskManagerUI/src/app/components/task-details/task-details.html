@@ -1,42 +1,50 @@
-<div class="container mt-5 d-flex justify-content-center">
+<div class="container mt-5 px-3 rtl-container">
   @if (task) {
-    <div class="minimal-card shadow-sm p-4 border rounded-4 bg-white">
-      <div class="d-flex justify-content-between align-items-start mb-4">
-        <h2 class="h4 fw-bold m-0 text-dark">{{ task.Title }}</h2>
-        <span class="text-muted small">#{{ task.Id }}</span>
-      </div>
+    <div class="details-card mx-auto bg-white rounded-5 shadow-lg border-0 overflow-hidden" style="max-width: 700px;">
+      
+      <div class="accent-bar" [ngClass]="'status-bg-' + task.StatusId"></div>
 
-      <div class="detail-row">
-        <label>תיאור</label>
-        <p>{{ task.Description || 'אין תיאור זמין' }}</p>
-      </div>
+      <div class="p-5">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <div>
+            <span class="text-gold small fw-bold text-uppercase d-block mb-1">סקירת משימה</span>
+            <h1 class="display-6 fw-bold text-dark m-0">{{ task.Title }}</h1>
+          </div>
+          <div class="id-badge">#{{ task.Id }}</div>
+        </div>
 
-      <div class="row mt-4">
-        <div class="col-6">
-          <div class="detail-row">
-            <label>סטטוס</label>
-            <span class="status-text border-start border-3 ps-2" [ngClass]="'status-' + task.StatusId">
-              {{ task.StatusName }}
-            </span>
+        <div class="row g-4">
+          <div class="col-12">
+            <label class="label-luxury">תיאור</label>
+            <div class="description-box p-3 rounded-4 bg-light text-dark">
+              {{ task.Description || 'אין תיאור זמין' }}
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="label-luxury">סטטוס</label>
+            <div><span class="custom-badge status-type-{{task.StatusId}} px-4 py-2">{{ task.StatusName }}</span></div>
+          </div>
+
+          <div class="col-md-6">
+            <label class="label-luxury">קטגוריה</label>
+            <div class="category-tag text-dark fw-bold">📁 {{ task.CategoryName }}</div>
           </div>
         </div>
-        <div class="col-6">
-          <div class="detail-row">
-            <label>קטגוריה</label>
-            <span class="text-dark fw-medium">{{ task.CategoryName }}</span>
+
+      @if (deleteSuccess) {
+        <div class="alert alert-success rounded-pill text-center animate-pop">✓ המשימה נמחקה בהצלחה!</div>
+      }
+
+        <div class="d-flex justify-content-between align-items-center mt-5 pt-4 border-top">
+          <button class="btn btn-link text-dark text-decoration-none fw-bold" (click)="goBack()">← חזרה</button>
+          
+          <div class="d-flex gap-3">
+            <button class="btn btn-outline-dark px-4 rounded-pill shadow-sm" (click)="editTask(task.Id)" title="ערוך משימה">עריכה</button>
+            <button class="btn btn-danger px-4 rounded-pill shadow-sm" (click)="deleteTask(task.Id)" title="מחק משימה">מחיקה</button>
           </div>
         </div>
-      </div>
-
-      <div class="mt-4 pt-3 border-top d-flex justify-content-between align-items-center">
-        <div class="detail-row m-0">
-          <label>נוצר בתאריך</label>
-          <span class="small text-muted">{{ task.CreatedAt | date:'dd/MM/yyyy' }}</span>
-        </div>
-        <button class="btn btn-sm btn-outline-secondary border-0" (click)="goBack()">חזרה</button>
       </div>
     </div>
-  } @else {
-    <div class="spinner-border text-light opacity-50" role="status"></div>
   }
 </div>

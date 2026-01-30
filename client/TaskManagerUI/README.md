@@ -1,59 +1,48 @@
-# TaskManagerUI
+# מערכת ניהול משימות (Task Management System)
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.10.
+מערכת לניהול משימות המאפשרת מעקב מלא, כולל יצירה, עריכה, סינון ומחיקה.
 
-## Development server
+---
 
-To start a local development server, run:
+## 1. הנושא שנבחר
+ניהול משימות יומיומיות המאפשר סיווג לפי קטגוריות ומעקב אחר התקדמות.
 
-```bash
-ng serve
-```
+## 2. מבנה מסד הנתונים (Tables)
+הפרויקט מבוסס על 3 טבלאות עם קשרי גומלין (Foreign Keys):
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+* טבלת המשימות - Tasks
+  מכילה את נתוני המשימות: Title, Description, CreatedAt.
 
-## Code scaffolding
+* טבלת הסטטוסים - Statuses
+  מגדירה את מצב המשימה (לדוגמה: חדש, בטיפול, הושלם).
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+* טבלת הקטגוריות - Categories
+  משמשת לסיווג המשימות (לדוגמה: עבודה, פרויקט גמר).
 
-```bash
-ng generate component component-name
-```
+## 3. לוגיקה ושאילתות (Stored Procedures)
+בפרויקט מומשו הפרוצדורות הבאות לצורך ניהול הנתונים:
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- GetAllTasks: שליפת כל המשימות עם שמות הסטטוס והקטגוריה.
+- GetTaskById: שליפת פרטי משימה ספציפית לפי מזהה.
+- CreateTask: הוספת משימה חדשה למסד הנתונים.
+- UpdateTask: עדכון פרטי משימה קיימת (שימוש ב-ISNULL לשמירה על נתונים).
+- DeleteTask: מחיקת משימה מהמערכת לפי מזהה.
+- ChangeStatus: עדכון מהיר של סטטוס המשימה בלבד.
+- SearchTasks: חיפוש משימות לפי טקסט חופשי בכותרת.
+- SearchWithCategory: חיפוש משולב של טקסט וקטגוריה.
+- GetByStatus: סינון משימות לפי סטטוס נבחר.
+- GetAllStatuses / GetAllCategories: שליפת רשימות עזר לטפסים.
 
-```bash
-ng generate --help
-```
+## 4. הוראות הרצה
 
-## Building
+### צד השרת (Backend - Web API)
+1. פתיחת הפרויקט ב-Visual Studio.
+2. עדכון מחרוזת החיבור (Connection String) ב-appsettings.json.
+3. הרצת ה-Scripts ב-SQL Server ליצירת הטבלאות והפרוצדורות.
+4. הרצת הפרויקט (F5).
 
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### צד הלקוח (Frontend - Angular)
+1. פתיחת התיקייה ב-VS Code.
+2. הרצת הפקודה: npm install
+3. הרצת הפקודה: ng serve
+4. פתיחת דפדפן בכתובת: http://localhost:4200
