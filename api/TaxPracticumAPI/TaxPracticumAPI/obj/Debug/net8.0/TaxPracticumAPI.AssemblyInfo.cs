@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TaxPracticumAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+040c2397a8297f656a67325dad95146fa5fb69fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+de5ae01eec9bde19d152b3bb12111722af428563")]
 [assembly: System.Reflection.AssemblyProductAttribute("TaxPracticumAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TaxPracticumAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
